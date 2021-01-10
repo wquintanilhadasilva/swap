@@ -1,0 +1,955 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<server xmlns="urn:jboss:domain:4.1">
+
+    <extensions>
+        <extension module="org.jboss.as.clustering.infinispan"/>
+        <extension module="org.jboss.as.connector"/>
+        <extension module="org.jboss.as.deployment-scanner"/>
+        <extension module="org.jboss.as.ee"/>
+        <extension module="org.jboss.as.ejb3"/>
+        <extension module="org.jboss.as.jaxrs"/>
+        <extension module="org.jboss.as.jdr"/>
+        <extension module="org.jboss.as.jmx"/>
+        <extension module="org.jboss.as.jpa"/>
+        <extension module="org.jboss.as.jsf"/>
+        <extension module="org.jboss.as.jsr77"/>
+        <extension module="org.jboss.as.logging"/>
+        <extension module="org.jboss.as.mail"/>
+        <extension module="org.jboss.as.naming"/>
+        <extension module="org.jboss.as.pojo"/>
+        <extension module="org.jboss.as.remoting"/>
+        <extension module="org.jboss.as.sar"/>
+        <extension module="org.jboss.as.security"/>
+        <extension module="org.jboss.as.transactions"/>
+        <extension module="org.jboss.as.webservices"/>
+        <extension module="org.jboss.as.weld"/>
+        <extension module="org.wildfly.extension.batch.jberet"/>
+        <extension module="org.wildfly.extension.bean-validation"/>
+        <extension module="org.wildfly.extension.io"/>
+        <extension module="org.wildfly.extension.messaging-activemq"/>
+        <extension module="org.wildfly.extension.request-controller"/>
+        <extension module="org.wildfly.extension.security.manager"/>
+        <extension module="org.wildfly.extension.undertow"/>
+        <extension module="org.wildfly.iiop-openjdk"/>
+        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
+    </extensions>
+
+    <system-properties>
+        <property name="ged_token_teste" value="false"/>
+        <property name="mock_siiso" value="false"/>
+        <property name="mock_siiso_pf" value="false"/>
+        <property name="mock_sipes" value="false"/>
+        <property name="obj_siiso" value="{}"/>
+        <property name="obj_siiso_pf" value="{}"/>
+        <property name="obj_sipes" value="{}"/>
+        <property name="simtr_apikey" value="l7eee98acd64c94538af840e0d15f4504b"/>
+        <property name="simtr_pae_acesso_matriz_funcao" value="2030;2037;2038;2048"/>
+        <property name="simtr_pae_acesso_matriz_unidade" value="5402;5061;5532;5307"/>
+        <property name="simtr_auth_server_url_sso_filter" value="https://login.des.caixa/auth"/>
+        <property name="simtr_resource_sso_filter" value="cli-ser-mtr"/>
+        <property name="simtr_realm_sso_filter" value="intranet"/>
+        <property name="simtr_ignore_sso_link_filter" value="false"/>
+        <property name="simtr_sso_client_secret" value="d2dc0325-c071-4f1f-897b-c3e0dec512a6"/>
+        <property name="simtr_sso_client_secret_intranet" value="d2dc0325-c071-4f1f-897b-c3e0dec512a6"/>
+        <property name="simtr_url_ignore_filter" value="/rest/servidor"/>
+        <property name="simtr_url_manual_usuario" value="ftp://ftp.go.caixa/PEDES/SIICD/SIICD_Manual_Usuario.pdf"/>
+        <property name="simtr_foto_perfil_url" value="http://tdv.caixa/img"/>
+        <property name="sipes_user" value="SMTRPESD"/>
+        <property name="sipes_password" value="123"/>
+        <property name="url_localidade" value="http://api.des.caixa:8080/informacoes-corporativas/v1/localidades/ceps"/>
+        <property name="url_siecm_ged" value="http://siecm.des.caixa/siecm-web"/>
+        <property name="url_sipes" value="https://api.des.caixa:8443/pesquisa-cadastral/v1/pesquisar"/>
+        <property name="url_sso_internet" value="https://logindes.caixa.gov.br"/>
+        <property name="url_sso_intranet" value="https://login.des.caixa"/>
+        <property name="url.servico.apimanager" value="https://api.des.caixa:8443"/>
+        <property name="url.servico.avalia.documento.sifrc" value="http://s.siclon.caixa/DossieProcessaAntifraude/"/>
+        <property name="url.servico.avalia.documento.sicod" value="http://ba0000sx205.ba.caixa:8080/sicod/api/avaliacao/consultar/cnh"/>
+        <property name="url.servico.atualiza.cliente.sicli" value="http://api.des.caixa:8080/cadastro/v1/clientes"/>
+        <property name="url.servico.consulta.cpf.sicli" value="http://api.des.caixa:8080/cadastro/v1/clientes"/>
+        <property name="url.servico.consulta.cnpj.siiso" value="https://api.des.caixa:8443/cadastro-receita/v4/pessoas-juridicas"/>
+        <property name="url.servico.consulta.cpf.siiso" value="https://api.des.caixa:8443/cadastro-receita/v4/pessoas-fisicas"/>
+        <property name="url.servico.consulta.tomador.siric" value="https://api.des.caixa:8443/risco-credito/v1/tomadores-credito/{cpf-cnpj}/avaliacoes-tomador"/>
+        <property name="url.servico.extracao.autenticidade" value="http://api.geban.caixa:8080/geban-mock/rest"/>
+        <property name="token.servico.extracao.autenticidade" value="http://api.geban.caixa:8080/geban-mock/rest"/>
+        <property name="url.simtr.api" value="http://simtr-api-dev.nprd2.caixa"/>
+        <property name="url.servico.bpm" value="http://simtr-jbpm.dev.caixa:8080/kie-server/services/rest"/>
+        <property name="usuario.nome.servico.bpm" value="kieserver"/>
+        <property name="simtr.keystore.type" value="JCEKS"/>
+        <property name="simtr.keystore.url" value="${jboss.server.config.dir}/simtr-keystore.jceks"/>
+        <property name="simtr.keystore.secret" value="serverpwd"/>
+        <property name="simtr.keystore.bpm.alias" value="bpm-usr-alias"/>
+        <property name="simtr.keystore.bpm.secret" value="bpm-usr-secret"/>
+        <property name="simtr.analitycs" value="false"/>
+        <property name="url.servico.colaborador.siico" value="https://api.des.caixa:8443/informacoes-corporativas-privadas/v1/empregados"/>
+        <property name="url.servico.unidade.siico" value="https://api.des.caixa:8443/informacoes-corporativas-privadas/v1/unidades"/>
+    </system-properties>
+
+
+    <management>
+        <security-realms>
+            <security-realm name="ManagementRealm">
+                <authentication>
+                    <local default-user="$local" skip-group-loading="true"/>
+                    <properties path="mgmt-users.properties" relative-to="jboss.server.config.dir"/>
+                </authentication>
+                <authorization map-groups-to-roles="false">
+                    <properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
+                </authorization>
+            </security-realm>
+            <security-realm name="ApplicationRealm">
+                <authentication>
+                    <local default-user="$local" allowed-users="*" skip-group-loading="true"/>
+                    <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
+                </authentication>
+                <authorization>
+                    <properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
+                </authorization>
+            </security-realm>
+            <security-realm name="SslRealm">
+                <server-identities>
+                    <ssl>
+                        <keystore path="server.jks" relative-to="jboss.server.config.dir" keystore-password="changeit" alias="server"/>
+                    </ssl>
+                </server-identities>
+            </security-realm>
+        </security-realms>
+        <audit-log>
+            <formatters>
+                <json-formatter name="json-formatter"/>
+            </formatters>
+            <handlers>
+                <file-handler name="file" formatter="json-formatter" path="audit-log.log" relative-to="jboss.server.data.dir"/>
+            </handlers>
+            <logger log-boot="true" log-read-only="false" enabled="false">
+                <handlers>
+                    <handler name="file"/>
+                </handlers>
+            </logger>
+        </audit-log>
+        <management-interfaces>
+            <native-interface security-realm="ManagementRealm">
+                <socket-binding native="management-native"/>
+            </native-interface>
+            <http-interface security-realm="ManagementRealm" http-upgrade-enabled="true">
+                <socket-binding http="management-http"/>
+            </http-interface>
+        </management-interfaces>
+        <access-control provider="simple">
+            <role-mapping>
+                <role name="SuperUser">
+                    <include>
+                        <user name="$local"/>
+                    </include>
+                </role>
+            </role-mapping>
+        </access-control>
+    </management>
+
+    <profile>
+        <subsystem xmlns="urn:jboss:domain:logging:3.0">
+            <console-handler name="CONSOLE">
+                <level name="DEBUG"/>
+                <formatter>
+                    <named-formatter name="COLOR-PATTERN"/>
+                </formatter>
+            </console-handler>
+            <periodic-rotating-file-handler name="FILE" autoflush="true">
+                <formatter>
+                    <named-formatter name="PATTERN"/>
+                </formatter>
+                <file relative-to="jboss.server.log.dir" path="server.log"/>
+                <suffix value=".yyyy-MM-dd"/>
+                <append value="true"/>
+            </periodic-rotating-file-handler>
+            <logger category="com.arjuna">
+                <level name="WARN"/>
+            </logger>
+            <logger category="org.jboss.as.config">
+                <level name="DEBUG"/>
+            </logger>
+            <logger category="sun.rmi">
+                <level name="WARN"/>
+            </logger>
+            <logger category="org.keycloak">
+                <level name="INFO"/>
+            </logger>
+            <root-logger>
+                <level name="INFO"/>
+                <handlers>
+                    <handler name="CONSOLE"/>
+                    <handler name="FILE"/>
+                </handlers>
+            </root-logger>
+            <formatter name="PATTERN">
+                <pattern-formatter pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
+            </formatter>
+            <formatter name="COLOR-PATTERN">
+                <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
+            </formatter>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:batch-jberet:1.0">
+            <default-job-repository name="in-memory"/>
+            <default-thread-pool name="batch"/>
+            <job-repository name="in-memory">
+                <in-memory/>
+            </job-repository>
+            <thread-pool name="batch">
+                <max-threads count="10"/>
+                <keepalive-time time="30" unit="seconds"/>
+            </thread-pool>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:bean-validation:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:datasources:4.0">
+            <datasources>
+                <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+                    <driver>h2</driver>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </datasource>
+                <datasource jndi-name="java:jboss/datasources/simtr-ds" pool-name="simtrPU" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:postgresql://10.116.83.70:8080/posprd01</connection-url>
+                    <driver>postgresql</driver>
+                    <security>
+                        <user-name>usrw_simtr_go</user-name>
+                        <password>Mtr#123</password>
+                    </security>
+                </datasource>
+                <datasource jndi-name="java:jboss/datasources/simtr-dsCE" pool-name="simtrPUCE" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:postgresql://localhost:5432/postgres</connection-url>
+                    <driver>postgresql</driver>
+                    <security>
+                        <user-name>postgres</user-name>
+                        <password>postgres</password>
+                    </security>
+                </datasource>
+                <datasource jta="true" jndi-name="java:jboss/datasources/sigdd-ds" pool-name="sigddPU" enabled="true" use-ccm="true">
+                    <connection-url>jdbc:Oracle:thin:@10.116.92.199:1521/orades24</connection-url>
+                    <driver>oracle</driver>
+                    <security>
+                        <user-name>GDDSM001</user-name>
+                        <password>s1gddd3s</password>
+                    </security>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+                        <background-validation>true</background-validation>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+                    </validation>
+                </datasource>
+                <datasource jndi-name="java:jboss/datasources/simtr-des" pool-name="simtrDesPU" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:postgresql://10.123.39.69:5432/DBMTR001</connection-url>
+                    <driver>postgresql</driver>
+                    <security>
+                        <user-name>f798783</user-name>
+                        <password>Mateus06</password>
+                    </security>
+                </datasource>
+                <datasource jndi-name="java:jboss/datasources/simtr-geban" pool-name="simtrGebanPU" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:postgresql://go7875sx018.goiania.caixa:5432/posdes01</connection-url>
+                    <driver>postgresql</driver>
+                    <security>
+                        <user-name>f798783</user-name>
+                        <password>xyz1234</password>
+                    </security>
+                </datasource>
+                <datasource jta="true" jndi-name="java:jboss/datasources/siico-mtr-ds" pool-name="siicoPU" enabled="true" use-ccm="true">
+                    <connection-url>jdbc:postgresql://go7875sx018.goiania.caixa:5432/posdes01</connection-url>
+                    <driver-class>org.postgresql.Driver</driver-class>
+                    <driver>postgresql</driver>
+                    <security>
+                        <user-name>f542373</user-name>
+                        <password>xyz1234</password>
+                    </security>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker"/>
+                        <background-validation>true</background-validation>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter"/>
+                    </validation>
+                </datasource>
+                <drivers>
+                    <driver name="h2" module="com.h2database.h2">
+                        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="postgresql" module="org.postgresql">
+                        <driver-class>org.postgresql.Driver</driver-class>
+                    </driver>
+                    <driver name="oracle" module="com.oracle">
+                        <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+                    </driver>
+                </drivers>
+            </datasources>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
+            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:ee:4.0">
+            <global-modules>
+                <module name="org.postgresql" slot="main"/>
+                <module name="br.gov.caixa.siusr" slot="main"/>
+                <module name="br.gov.caixa.siusrFake" slot="main"/>
+                <module name="br.gov.caixa.sieti" slot="main"/>
+            </global-modules>
+            <spec-deor-property-replacement>true</spec-deor-property-replacement>
+            <jboss-deor-property-replacement>true</jboss-deor-property-replacement>
+            <concurrent>
+                <context-services>
+                    <context-service name="default" jndi-name="java:jboss/ee/concurrency/context/default" use-transaction-setup-provider="true"/>
+                </context-services>
+                <managed-thread-factories>
+                    <managed-thread-factory name="default" jndi-name="java:jboss/ee/concurrency/factory/default" context-service="default"/>
+                </managed-thread-factories>
+                <managed-executor-services>
+                    <managed-executor-service name="default" jndi-name="java:jboss/ee/concurrency/executor/default" context-service="default" hung-task-threshold="60000" keepalive-time="5000"/>
+                </managed-executor-services>
+                <managed-scheduled-executor-services>
+                    <managed-scheduled-executor-service name="default" jndi-name="java:jboss/ee/concurrency/scheduler/default" context-service="default" hung-task-threshold="60000" keepalive-time="3000"/>
+                </managed-scheduled-executor-services>
+            </concurrent>
+            <default-bindings context-service="java:jboss/ee/concurrency/context/default" datasource="java:jboss/datasources/ExampleDS" jms-connection-factory="java:jboss/DefaultJMSConnectionFactory" managed-executor-service="java:jboss/ee/concurrency/executor/default" managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default" managed-thread-factory="java:jboss/ee/concurrency/factory/default"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:ejb3:4.0">
+            <session-bean>
+                <stateless>
+                    <bean-instance-pool-ref pool-name="slsb-strict-max-pool"/>
+                </stateless>
+                <stateful default-access-timeout="5000" cache-ref="simple" passivation-disabled-cache-ref="simple"/>
+                <singleton default-access-timeout="5000"/>
+            </session-bean>
+            <mdb>
+                <resource-adapter-ref resource-adapter-name="${ejb.resource-adapter-name:activemq-ra.rar}"/>
+                <bean-instance-pool-ref pool-name="mdb-strict-max-pool"/>
+            </mdb>
+            <pools>
+                <bean-instance-pools>
+                    <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                    <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                </bean-instance-pools>
+            </pools>
+            <caches>
+                <cache name="simple"/>
+                <cache name="distributable" passivation-store-ref="infinispan" aliases="passivating clustered"/>
+            </caches>
+            <passivation-stores>
+                <passivation-store name="infinispan" cache-container="ejb" max-size="10000"/>
+            </passivation-stores>
+            <async thread-pool-name="default"/>
+            <timer-service thread-pool-name="default" default-data-store="default-file-store">
+                <data-stores>
+                    <file-data-store name="default-file-store" path="timer-service-data" relative-to="jboss.server.data.dir"/>
+                </data-stores>
+            </timer-service>
+            <remote connector-ref="http-remoting-connector" thread-pool-name="default"/>
+            <thread-pools>
+                <thread-pool name="default">
+                    <max-threads count="10"/>
+                    <keepalive-time time="100" unit="milliseconds"/>
+                </thread-pool>
+            </thread-pools>
+            <iiop enable-by-default="false" use-qualified-name="false"/>
+            <default-security-domain value="other"/>
+            <default-missing-method-permissions-deny-access value="true"/>
+            <log-system-exceptions value="true"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:io:1.1">
+            <worker name="default"/>
+            <buffer-pool name="default"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:infinispan:4.0">
+            <cache-container name="server" default-cache="default" module="org.wildfly.clustering.server">
+                <local-cache name="default">
+                    <transaction mode="BATCH"/>
+                </local-cache>
+            </cache-container>
+            <cache-container name="web" default-cache="passivation" module="org.wildfly.clustering.web.infinispan">
+                <local-cache name="passivation">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store passivation="true" purge="false"/>
+                </local-cache>
+                <local-cache name="persistent">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store passivation="false" purge="false"/>
+                </local-cache>
+            </cache-container>
+            <cache-container name="ejb" aliases="sfsb" default-cache="passivation" module="org.wildfly.clustering.ejb.infinispan">
+                <local-cache name="passivation">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store passivation="true" purge="false"/>
+                </local-cache>
+                <local-cache name="persistent">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store passivation="false" purge="false"/>
+                </local-cache>
+            </cache-container>
+            <cache-container name="hibernate" default-cache="local-query" module="org.hibernate.infinispan">
+                <local-cache name="entity">
+                    <transaction mode="NON_XA"/>
+                    <eviction strategy="LRU" max-entries="10000"/>
+                    <expiration max-idle="100000"/>
+                </local-cache>
+                <local-cache name="local-query">
+                    <eviction strategy="LRU" max-entries="10000"/>
+                    <expiration max-idle="100000"/>
+                </local-cache>
+                <local-cache name="timestamps"/>
+            </cache-container>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:1.0">
+            <initializers transactions="spec" security="identity"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jaxrs:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:jca:4.0">
+            <archive-validation enabled="true" fail-on-error="true" fail-on-warn="false"/>
+            <bean-validation enabled="true"/>
+            <default-workmanager>
+                <short-running-threads>
+                    <core-threads count="50"/>
+                    <queue-length count="50"/>
+                    <max-threads count="50"/>
+                    <keepalive-time time="10" unit="seconds"/>
+                </short-running-threads>
+                <long-running-threads>
+                    <core-threads count="50"/>
+                    <queue-length count="50"/>
+                    <max-threads count="50"/>
+                    <keepalive-time time="10" unit="seconds"/>
+                </long-running-threads>
+            </default-workmanager>
+            <cached-connection-manager/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jdr:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:jmx:1.3">
+            <expose-resolved-model/>
+            <expose-expression-model/>
+            <remoting-connector/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jpa:1.1">
+            <jpa default-datasource="" default-extended-persistence-inheritance="DEEP"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jsf:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:jsr77:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:mail:2.0">
+            <mail-session name="default" jndi-name="java:jboss/mail/Default">
+                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
+            </mail-session>
+            <mail-session name="expresso" jndi-name="java:jboss/mail/expresso">
+                <smtp-server outbound-socket-binding-ref="expresso-smtp"/>
+            </mail-session>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:messaging-activemq:1.0">
+            <server name="default">
+                <security-setting name="#">
+                    <role name="guest" delete-non-durable-queue="true" create-non-durable-queue="true" consume="true" send="true"/>
+                </security-setting>
+                <address-setting name="#" message-counter-history-day-limit="10" page-size-bytes="2097152" max-size-bytes="10485760" expiry-address="jms.queue.ExpiryQueue" dead-letter-address="jms.queue.DLQ"/>
+                <http-connector name="http-connector" endpoint="http-acceptor" socket-binding="http"/>
+                <http-connector name="http-connector-throughput" endpoint="http-acceptor-throughput" socket-binding="http">
+                    <param name="batch-delay" value="50"/>
+                </http-connector>
+                <in-vm-connector name="in-vm" server-id="0"/>
+                <http-acceptor name="http-acceptor" http-listener="default"/>
+                <http-acceptor name="http-acceptor-throughput" http-listener="default">
+                    <param name="batch-delay" value="50"/>
+                    <param name="direct-deliver" value="false"/>
+                </http-acceptor>
+                <in-vm-acceptor name="in-vm" server-id="0"/>
+                <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
+                <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
+                <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector"/>
+                <pooled-connection-factory name="activemq-ra" transaction="xa" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm"/>
+            </server>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:naming:2.0">
+            <remote-naming/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:remoting:3.0">
+            <endpoint/>
+            <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:resource-adapters:4.0">
+            <resource-adapters>
+                <resource-adapter id="wmq.jmsra.rar">
+                    <archive>
+                        wmq.jmsra.rar
+                    </archive>
+                    <transaction-support>LocalTransaction</transaction-support>
+                    <config-property name="logWriterEnabled">
+                        true
+                    </config-property>
+                    <config-property name="traceLevel">
+                        10
+                    </config-property>
+                    <config-property name="traceEnabled">
+                        true
+                    </config-property>
+                    <connection-definitions>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedQueueConnectionFactoryImpl" jndi-name="java:/jboss/jms/wmq/QueueConnectionFactorySimtr" pool-name="QueueConnectionFactorySimtr">
+                            <config-property name="channel">
+                                ${secli.wsmq.channel}
+                            </config-property>
+                            <config-property name="hostName">
+                                ${secli.wsmq.hostname}
+                            </config-property>
+                            <config-property name="transportType">
+                                ${secli.wsmq.transporttype}
+                            </config-property>
+                            <config-property name="queueManager">
+                                ${secli.wsmq.queuemanager}
+                            </config-property>
+                            <config-property name="port">
+                                ${secli.wsmq.port}
+                            </config-property>
+                            <config-property name="username">
+                                ${simtr.wsmq.username}
+                            </config-property>
+                            <security>
+                                <application/>
+                            </security>
+                        </connection-definition>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedQueueConnectionFactoryImpl" jndi-name="java:/jboss/jms/wmq/SIIAC_SIBAR_TQS_SIACBARDFactory" pool-name="SIIAC_SIBAR_TQS_SIACBARDFactory">
+                            <config-property name="channel">
+                                SIIAC.SVRCONN
+                            </config-property>
+                            <config-property name="hostName">
+                                10.192.224.100
+                            </config-property>
+                            <config-property name="transportType">
+                                CLIENT
+                            </config-property>
+                            <config-property name="queueManager">
+                                BRD3
+                            </config-property>
+                            <config-property name="port">
+                                1415
+                            </config-property>
+                            <config-property name="username">
+                                SIACBARD
+                            </config-property>
+                            <security>
+                                <application/>
+                            </security>
+                        </connection-definition>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedQueueConnectionFactoryImpl" jndi-name="java:/jboss/jms/wmq/QueueConnectionFactory" pool-name="QueueConnectionFactory">
+                            <config-property name="channel">
+                                SIFSA.SVRCONN
+                            </config-property>
+                            <config-property name="hostName">
+                                10.216.80.110
+                            </config-property>
+                            <config-property name="transportType">
+                                CLIENT
+                            </config-property>
+                            <config-property name="queueManager">
+                                RJD2
+                            </config-property>
+                            <config-property name="port">
+                                1415
+                            </config-property>
+                            <config-property name="username">
+                                SFSABARD
+                            </config-property>
+                            <security>
+                                <application/>
+                            </security>
+                        </connection-definition>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedTopicConnectionFactoryImpl" jndi-name="java:/jboss/jms/wmq/TconnFactory" pool-name="TconnFactory">
+                            <config-property name="channel">
+                                SIIAC.SVRCONN
+                            </config-property>
+                            <config-property name="hostName">
+                                10.192.224.100
+                            </config-property>
+                            <config-property name="transportType">
+                                CLIENT
+                            </config-property>
+                            <config-property name="queueManager">
+                                BRD3
+                            </config-property>
+                            <config-property name="port">
+                                1415
+                            </config-property>
+                            <config-property name="username">
+                                SIACBARD
+                            </config-property>
+                            <security>
+                                <application/>
+                            </security>
+                        </connection-definition>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedQueueConnectionFactoryImpl" jndi-name="java:/jboss/jms/wmq/MQLocalFactory" pool-name="MQLocalFactory">
+                            <config-property name="channel">
+                                SIIAC.SRVCONN
+                            </config-property>
+                            <config-property name="hostName">
+                                127.0.0.1
+                            </config-property>
+                            <config-property name="transportType">
+                                CLIENT
+                            </config-property>
+                            <config-property name="queueManager">
+                                BRD3
+                            </config-property>
+                            <config-property name="port">
+                                1414
+                            </config-property>
+                            <config-property name="username">
+                                SIACBARD
+                            </config-property>
+                            <security>
+                                <application/>
+                            </security>
+                        </connection-definition>
+                    </connection-definitions>
+                    <admin-objects>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jboss/jms/wmq/MQ.QUEUE.REQ.CONSULTA_CLIENTE" pool-name="MQ.QUEUE.REQ.CONSULTA_CLIENTE">
+                            <config-property name="baseQueueName">
+                                ${secli.wsmq.destination.sicli.req.consultacliente}
+                            </config-property>
+                        </admin-object>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jboss/jms/wmq/SIISO.RSP.PJ_MANUTENCAO_CADASTRAL" pool-name="SIISO.RSP.PJ_MANUTENCAO_CADASTRAL">
+                            <config-property name="baseQueueName">
+                                SIISO.RSP.PJ_MANUTENCAO_CADASTRAL
+                            </config-property>
+                        </admin-object>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jboss/jms/wmq/MQ.QUEUE.RSP.CONSULTA_CLIENTE" pool-name="MQ.QUEUE.RSP.CONSULTA_CLIENTE">
+                            <config-property name="baseQueueName">
+                                ${secli.wsmq.destination.sicli.rsp.consultacliente}
+                            </config-property>
+                        </admin-object>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jboss/jms/wmq/SIISO.REQ.PJ_MANUTENCAO_CADASTRAL" pool-name="SIISO.REQ.PJ_MANUTENCAO_CADASTRAL">
+                            <config-property name="baseQueueName">
+                                SIISO.REQ.PJ_MANUTENCAO_CADASTRAL
+                            </config-property>
+                        </admin-object>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jboss/jms/wmq/CONSULTA.CLIENTE.RSP" pool-name="CONSULTA.CLIENTE.RSP">
+                            <config-property name="baseQueueName">
+                                CONSULTA.CLIENTE.RSP
+                            </config-property>
+                        </admin-object>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jboss/jms/wmq/CONSULTA.CLIENTE.REQ" pool-name="CONSULTA.CLIENTE.REQ">
+                            <config-property name="baseQueueName">
+                                CONSULTA.CLIENTE.REQ
+                            </config-property>
+                        </admin-object>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQTopicProxy" jndi-name="java:/jboss/jms/wmq/SIIAC_VALIDA_CONFORMIDADE" pool-name="SIIAC_VALIDA_CONFORMIDADE">
+                            <config-property name="baseTopicName">
+                                IAC/VALIDA_CONFORMIDADE
+                            </config-property>
+                        </admin-object>
+                    </admin-objects>
+                </resource-adapter>
+            </resource-adapters>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
+            <deployment-permissions>
+                <maximum-set>
+                    <permission class="java.security.AllPermission"/>
+                </maximum-set>
+            </deployment-permissions>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:security:1.2">
+            <security-domains>
+                <security-domain name="other" cache-type="default">
+                    <authentication>
+                        <login-module code="Remoting" flag="optional">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="RealmDirect" flag="required">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jboss-web-policy" cache-type="default">
+                    <authorization>
+                        <policy-module code="Delegating" flag="required"/>
+                    </authorization>
+                </security-domain>
+                <security-domain name="jboss-ejb-policy" cache-type="default">
+                    <authorization>
+                        <policy-module code="Delegating" flag="required"/>
+                    </authorization>
+                </security-domain>
+                <security-domain name="jaspitest" cache-type="default">
+                    <authentication-jaspi>
+                        <login-module-stack name="dummy">
+                            <login-module code="Dummy" flag="optional"/>
+                        </login-module-stack>
+                        <auth-module code="Dummy"/>
+                    </authentication-jaspi>
+                </security-domain>
+                <security-domain name="semtiLogin" cache-type="default">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="semtiRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SEMTI"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="sifsaLogin">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="sifsaRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SIFSA"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="arquetipo_ear_jee7Login">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="arquetipo_ear_jee7Realm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="arquetipo"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="siiacLogin">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="siiacRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SIIAC"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="sicicLogin">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrfake">
+                            <module-option name="realm" value="sicicRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SICIC"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="nomeRecursoLogin">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="nomeRecursoRealm"/>
+                            <module-option name="siusrEndPoint" value="c:c:/Sistemas"/>
+                            <module-option name="sgSistema" value="arquetipo"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="secicLogin">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="secicRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SECIC"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="sidevLogin">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="sidevRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SIDEV"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="siicdLogin" cache-type="default">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="siicdRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SIICD"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="sericLogin">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="sericRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SERIC"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="sitrrLogin">
+                    <authentication>
+                        <login-module code="br.gov.caixa.security.CaixaLoginModuleFake" flag="required" module="br.gov.caixa.siusrFake">
+                            <module-option name="realm" value="sitrrRealm"/>
+                            <module-option name="siusrEndPoint" value="c:/Sistemas"/>
+                            <module-option name="sgSistema" value="SITRR"/>
+                            <module-option name="debug" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="keycloak">
+                    <authentication>
+                        <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule" flag="required"/>
+                    </authentication>
+                </security-domain>
+                <security-domain name="sietidomain" cache-type="default">
+                    <authentication>
+                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="required">
+                            <module-option name="java.naming.provider.url" value="ldap://ldap.caixa:489"/>
+                            <module-option name="bindDN" value=""/>
+                            <module-option name="bindCredential" value=""/>
+                            <module-option name="baseCtxDN" value="o=caixa"/>
+                            <module-option name="baseFilter" value="(uid={0})"/>
+                            <module-option name="rolesCtxDN" value="o=caixa"/>
+                            <module-option name="roleFilter" value="(uid={0})"/>
+                            <module-option name="roleAttributeID" value="NO-UNIDADE"/>
+                            <module-option name="roleAttributeIsDN" value="false"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                            <module-option name="allowEmptyPasswords" value="true"/>
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="br.gov.caixa.sieti.security.JBossWebLoginModule" flag="required" module="br.gov.caixa.sieti">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                            <module-option name="dataSource" value="java:jboss/datasources/sieti-ds"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+            </security-domains>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:transactions:3.0">
+            <core-environment>
+                <process-id>
+                    <uuid/>
+                </process-id>
+            </core-environment>
+            <recovery-environment socket-binding="txn-recovery-environment" status-socket-binding="txn-status-manager"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:undertow:3.1">
+            <buffer-cache name="default"/>
+            <server name="default-server">
+                <http-listener name="default" enable-http2="true" socket-binding="http" redirect-socket="https"/>
+                <https-listener name="https" enable-http2="true" security-realm="SslRealm" socket-binding="https"/>
+                <host name="default-host" alias="localhost">
+                    <location name="/" handler="welcome-content"/>
+                    <filter-ref name="server-header"/>
+                    <filter-ref name="x-powered-by-header"/>
+                </host>
+                <host name="SEMTI" default-web-module="SEMTI-web" alias="semti.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SIFSA" default-web-module="SIFSA-web" alias="sifsa.loc.pedes.caixa">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="arquetipo_ear_jee7" default-web-module="arquetipo_ear_jee7-web" alias="arquetipo.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SIIAC" default-web-module="SIIAC-web" alias="siiac.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SIIAC-PROTOTIPO" default-web-module="SIIAC-web" alias="prototipo.siiac.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="arquetipo_war_jee7" default-web-module="arquetipo_war_jee7-web" alias="arquetipo.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SECIC" default-web-module="SECIC-web" alias="secic.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SIICD" default-web-module="SIICD" alias="sians.loc.pedes.caixa">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SERIC" default-web-module="SERIC-web" alias="seric.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SIDEV" default-web-module="SIDEV" alias="sidev.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SITRR" default-web-module="SITRR" alias="sitrr.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SIETI" default-web-module="SIETI" alias="sieti.loc.pedes.caixa">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+                <host name="SECLI" default-web-module="SECLI-web" alias="secli.loc.caixa.to-brasil.local">
+                    <location name="/" handler="welcome-content"/>
+                </host>
+            </server>
+            <servlet-container name="default">
+                <jsp-config/>
+                <websockets/>
+            </servlet-container>
+            <handlers>
+                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
+            </handlers>
+            <filters>
+                <response-header name="server-header" header-name="Server" header-value="JBoss-EAP/7"/>
+                <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
+            </filters>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:webservices:2.0">
+            <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
+            <endpoint-config name="Standard-Endpoint-Config"/>
+            <endpoint-config name="Recording-Endpoint-Config">
+                <pre-handler-chain name="recording-handlers" protocol-bindings="##SOAP11_HTTP ##SOAP11_HTTP_MTOM ##SOAP12_HTTP ##SOAP12_HTTP_MTOM">
+                    <handler name="RecordingHandler" class="org.jboss.ws.common.invocation.RecordingServerHandler"/>
+                </pre-handler-chain>
+            </endpoint-config>
+            <client-config name="Standard-Client-Config"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:keycloak:1.1">
+            <secure-deployment name="simtr-api.war">
+                <realm>intranet</realm>
+                <resource>cli-ser-mtr</resource>
+                <bearer-only>true</bearer-only>
+                <auth-server-url>https://login.des.caixa/auth</auth-server-url>
+                <ssl-required>EXTERNAL</ssl-required>
+                <allow-any-hostname>true</allow-any-hostname>
+                <enable-cors>true</enable-cors>
+                <cors-allowed-headers>Origin, X-Requested-With, X-XSRF-TOKEN, Content-Type, Accept, Authorization, access-control-allow-origin,Access-Control-Allow-Credentials, integracao</cors-allowed-headers>
+                <cors-allowed-methods>GET, POST, DELETE, PUT, OPTIONS, PATCH</cors-allowed-methods>
+            </secure-deployment>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:weld:3.0"/>
+    </profile>
+
+    <interfaces>
+        <interface name="management">
+            <any-address/>
+        </interface>
+        <interface name="public">
+            <any-address/>
+        </interface>
+        <interface name="unsecure">
+            <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
+        </interface>
+    </interfaces>
+
+    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
+        <socket-binding name="management-native" interface="management" port="${jboss.management.native.port:9999}"/>
+        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
+        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
+        <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
+        <socket-binding name="http" port="${jboss.http.port:8080}"/>
+        <socket-binding name="https" port="${jboss.https.port:8443}"/>
+        <socket-binding name="iiop" interface="unsecure" port="3528"/>
+        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
+        <socket-binding name="txn-recovery-environment" port="4712"/>
+        <socket-binding name="txn-status-manager" port="4713"/>
+        <outbound-socket-binding name="mail-smtp">
+            <remote-destination host="localhost" port="25"/>
+        </outbound-socket-binding>
+        <outbound-socket-binding name="expresso-smtp">
+            <remote-destination host="go7875sx001.goiania.caixa" port="1025"/>
+        </outbound-socket-binding>
+    </socket-binding-group>
+
+</server>

@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "7bf493a3-3506-4607-9ba1-3eb47c5d2030",
+		"name": "SIMTR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Administracao/FalhaBPM",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"tlsDisabledProtocols": [
+					"SSLv2"
+				],
+				"followAuthorizationHeader": false
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNRmVKNjVfRC14cU55M1Zta01Ib01WS1NjZlA3S21ZazdtVjBJaEsta0F3In0.eyJqdGkiOiJiYThkMGY5MS1mZTMzLTQ1ZDEtYTYxYi1kNmViYzZlZjQyYjkiLCJleHAiOjE1OTI4Mzc2NjcsIm5iZiI6MCwiaWF0IjoxNTkyODM2NzY3LCJpc3MiOiJodHRwczovL2xvZ2luLmRlcy5jYWl4YS9hdXRoL3JlYWxtcy9pbnRyYW5ldCIsInN1YiI6IjgyYTliNTk4LWZiZjMtNDBkOC05MTZmLTQzYTlkOTZmOGVhOCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImNsaS13ZWItbXRyIiwibm9uY2UiOiJiNDE4MjIyMC1mMDJiLTRkZDgtOWJlNS0xYTlhYTdkMjlkMWUiLCJhdXRoX3RpbWUiOjE1OTI4MzY3NTksInNlc3Npb25fc3RhdGUiOiI4NTcwMTY5MC03ODY4LTQyYzMtYWZlOS0xZDVlZGQ1YjBmYmEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9kb3NzaWUuZGVzLnBlZGVzLmNhaXhhIiwiaHR0cHM6Ly9zaW10ci1kb3NzaWUtZGV2Lm5wcmQyLmNhaXhhIiwiaHR0cDovL3NpbXRyLWRvc3NpZS10cXMubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItZG9zc2llLWhtcC5ucHJkMi5jYWl4YSIsImh0dHA6Ly9zaW10ci1kb3NzaWUtZGV2Lm5wcmQyLmNhaXhhIiwiaHR0cDovL3NpbXRyLnRzdC5jYWl4YSIsImh0dHA6Ly9zaW10ci5obXAuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLWRldi5ucHJkMi5jYWl4YSIsImh0dHA6Ly9uZWdvY2lvLnNpbXRyLmdlYmFuLmNhaXhhIiwiaHR0cDovL3NpbXRyLXdlYi10cXMubnByZDIuY2FpeGEiLCJodHRwczovL3NpbXRyLXdlYi1obXAubnByZDIuY2FpeGEiLCJodHRwczovL3NpbXRyLWRvc3NpZS1obXAubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLXBhZS1kZXYubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLXBhZS1obXAubnByZDIuY2FpeGEiLCJodHRwOi8vcGFlLnNpbXRyLmdlYmFuLmNhaXhhIiwiaHR0cDovL2JwbS5kZXMucGVkZXMuY2FpeGEiLCJodHRwOi8vc2ltdHIudHN0LnBlZGVzLmNhaXhhIiwiaHR0cDovL3NpbXRyLmhtcC5wZWRlcy5jYWl4YSIsImh0dHA6Ly9sb2NhbGhvc3QiLCJodHRwOi8vc2ltdHIuZGVzLmNhaXhhIiwiaHR0cDovL2Rvc3NpZS5obXAucGVkZXMuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLWhtcC5ucHJkMi5jYWl4YSIsImh0dHA6Ly9zaW10ci5nZWJhbi5jYWl4YSIsImh0dHA6Ly9zaW10ci13ZWItcGFlLXRxcy5ucHJkMi5jYWl4YSIsImh0dHA6Ly9kb3NzaWUudHN0LnBlZGVzLmNhaXhhIiwiaHR0cDovL3NpbXRyLmRlcy5wZWRlcy5jYWl4YSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiTVRSQURNIiwiU0VUX1NFUlZJQ08iLCJlY21fdXNlciIsInVtYV9hdXRob3JpemF0aW9uIl19LCJzY29wZSI6Im9wZW5pZCIsImNvLXVuaWRhZGUiOiI3ODc1Iiwic2VydmljZV91c2VybmFtZSI6IlNNVFJQRVNEIiwibnUtY3BmIjoiMDE0OTc1MzIxNzUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJwNzUxOTE3IiwiZ2l2ZW5fbmFtZSI6IkFOQSBQQVVMQSBOVU5FUyBEQSBTSUxWQSIsImZhbWlseV9uYW1lIjoiU0lMVkEiLCJudS1sb3RhY2FvZmlzaWNhIjoiNzg3NSIsImVtYWlsIjoicDc1MTkxN0Bjb3JwLmNhaXhhLmdvdi5iciJ9.gr5-umz0gW2Ae2vMvxeDhxn5WVZ_Sih9t888NbenCxQAmQYBbw5orG_My_KuKnMKXrDPXnFToWd_-ebu0WWh4UoZ5Ey_oRj2GxzlRifGXHBo04OlRZLbyNZtUB1JH-o2jPSrPhjRCelHJJXZNtWXjazVffF-RXb1UNlDeONiHPUsj0vWtFMpk99TZ8HujR5AuYPvsiPETwFJCQ5vESLVmO_ibQxy50NyWkIwM0iJnLNbkAOPvojXrTyXfZWgu8qzn2INZYEe-XxTRStWerwBCo4XOH-B7BQSFgLjLQPYKkfEp-3fK2WSO99SxDbO64VmPdp0HCWfXrTzioRUEK1YiA",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [],
+					"options": {
+						"urlencoded": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/simtr-api/rest/negocio/v1/dossie-cliente/1661/cadastro-caixa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simtr-api",
+						"rest",
+						"negocio",
+						"v1",
+						"dossie-cliente",
+						"1661",
+						"cadastro-caixa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Solicitar avaliação do tomador pessoa jurídica.",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"tlsDisabledProtocols": [
+					"SSLv2"
+				],
+				"followAuthorizationHeader": false
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNRmVKNjVfRC14cU55M1Zta01Ib01WS1NjZlA3S21ZazdtVjBJaEsta0F3In0.eyJqdGkiOiJiYThkMGY5MS1mZTMzLTQ1ZDEtYTYxYi1kNmViYzZlZjQyYjkiLCJleHAiOjE1OTI4Mzc2NjcsIm5iZiI6MCwiaWF0IjoxNTkyODM2NzY3LCJpc3MiOiJodHRwczovL2xvZ2luLmRlcy5jYWl4YS9hdXRoL3JlYWxtcy9pbnRyYW5ldCIsInN1YiI6IjgyYTliNTk4LWZiZjMtNDBkOC05MTZmLTQzYTlkOTZmOGVhOCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImNsaS13ZWItbXRyIiwibm9uY2UiOiJiNDE4MjIyMC1mMDJiLTRkZDgtOWJlNS0xYTlhYTdkMjlkMWUiLCJhdXRoX3RpbWUiOjE1OTI4MzY3NTksInNlc3Npb25fc3RhdGUiOiI4NTcwMTY5MC03ODY4LTQyYzMtYWZlOS0xZDVlZGQ1YjBmYmEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9kb3NzaWUuZGVzLnBlZGVzLmNhaXhhIiwiaHR0cHM6Ly9zaW10ci1kb3NzaWUtZGV2Lm5wcmQyLmNhaXhhIiwiaHR0cDovL3NpbXRyLWRvc3NpZS10cXMubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItZG9zc2llLWhtcC5ucHJkMi5jYWl4YSIsImh0dHA6Ly9zaW10ci1kb3NzaWUtZGV2Lm5wcmQyLmNhaXhhIiwiaHR0cDovL3NpbXRyLnRzdC5jYWl4YSIsImh0dHA6Ly9zaW10ci5obXAuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLWRldi5ucHJkMi5jYWl4YSIsImh0dHA6Ly9uZWdvY2lvLnNpbXRyLmdlYmFuLmNhaXhhIiwiaHR0cDovL3NpbXRyLXdlYi10cXMubnByZDIuY2FpeGEiLCJodHRwczovL3NpbXRyLXdlYi1obXAubnByZDIuY2FpeGEiLCJodHRwczovL3NpbXRyLWRvc3NpZS1obXAubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLXBhZS1kZXYubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLXBhZS1obXAubnByZDIuY2FpeGEiLCJodHRwOi8vcGFlLnNpbXRyLmdlYmFuLmNhaXhhIiwiaHR0cDovL2JwbS5kZXMucGVkZXMuY2FpeGEiLCJodHRwOi8vc2ltdHIudHN0LnBlZGVzLmNhaXhhIiwiaHR0cDovL3NpbXRyLmhtcC5wZWRlcy5jYWl4YSIsImh0dHA6Ly9sb2NhbGhvc3QiLCJodHRwOi8vc2ltdHIuZGVzLmNhaXhhIiwiaHR0cDovL2Rvc3NpZS5obXAucGVkZXMuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLWhtcC5ucHJkMi5jYWl4YSIsImh0dHA6Ly9zaW10ci5nZWJhbi5jYWl4YSIsImh0dHA6Ly9zaW10ci13ZWItcGFlLXRxcy5ucHJkMi5jYWl4YSIsImh0dHA6Ly9kb3NzaWUudHN0LnBlZGVzLmNhaXhhIiwiaHR0cDovL3NpbXRyLmRlcy5wZWRlcy5jYWl4YSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiTVRSQURNIiwiU0VUX1NFUlZJQ08iLCJlY21fdXNlciIsInVtYV9hdXRob3JpemF0aW9uIl19LCJzY29wZSI6Im9wZW5pZCIsImNvLXVuaWRhZGUiOiI3ODc1Iiwic2VydmljZV91c2VybmFtZSI6IlNNVFJQRVNEIiwibnUtY3BmIjoiMDE0OTc1MzIxNzUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJwNzUxOTE3IiwiZ2l2ZW5fbmFtZSI6IkFOQSBQQVVMQSBOVU5FUyBEQSBTSUxWQSIsImZhbWlseV9uYW1lIjoiU0lMVkEiLCJudS1sb3RhY2FvZmlzaWNhIjoiNzg3NSIsImVtYWlsIjoicDc1MTkxN0Bjb3JwLmNhaXhhLmdvdi5iciJ9.gr5-umz0gW2Ae2vMvxeDhxn5WVZ_Sih9t888NbenCxQAmQYBbw5orG_My_KuKnMKXrDPXnFToWd_-ebu0WWh4UoZ5Ey_oRj2GxzlRifGXHBo04OlRZLbyNZtUB1JH-o2jPSrPhjRCelHJJXZNtWXjazVffF-RXb1UNlDeONiHPUsj0vWtFMpk99TZ8HujR5AuYPvsiPETwFJCQ5vESLVmO_ibQxy50NyWkIwM0iJnLNbkAOPvojXrTyXfZWgu8qzn2INZYEe-XxTRStWerwBCo4XOH-B7BQSFgLjLQPYKkfEp-3fK2WSO99SxDbO64VmPdp0HCWfXrTzioRUEK1YiA",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [],
+					"options": {
+						"urlencoded": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/simtr-api/rest/negocio/v1/avaliacao-tomador-pj/solicitacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simtr-api",
+						"rest",
+						"negocio",
+						"v1",
+						"avaliacao-tomador-pj",
+						"solicitacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Captura Informação do SIISO CNPJ",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true,
+				"tlsDisabledProtocols": [
+					"SSLv2"
+				],
+				"followAuthorizationHeader": false
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNRmVKNjVfRC14cU55M1Zta01Ib01WS1NjZlA3S21ZazdtVjBJaEsta0F3In0.eyJqdGkiOiI1Zjk0NjYwNy1jMzE0LTQ0NTMtOWU4NC0yZjcxZTU2MDE3OWMiLCJleHAiOjE1OTMwOTY4NjAsIm5iZiI6MCwiaWF0IjoxNTkzMDk1OTYwLCJpc3MiOiJodHRwczovL2xvZ2luLmRlcy5jYWl4YS9hdXRoL3JlYWxtcy9pbnRyYW5ldCIsInN1YiI6IjgyYTliNTk4LWZiZjMtNDBkOC05MTZmLTQzYTlkOTZmOGVhOCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImNsaS13ZWItbXRyIiwibm9uY2UiOiI5NjliMzQ4Zi1kZmM0LTQ3OTQtYjk0NS0xODUyMjgxMjM1MzIiLCJhdXRoX3RpbWUiOjE1OTMwODY3NDEsInNlc3Npb25fc3RhdGUiOiI5ZjljMjhhNS03MWIzLTQ5NzUtODU3OC1iYjFlMDRjM2MwYjEiLCJhY3IiOiIwIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9kb3NzaWUuZGVzLnBlZGVzLmNhaXhhIiwiaHR0cHM6Ly9zaW10ci1kb3NzaWUtZGV2Lm5wcmQyLmNhaXhhIiwiaHR0cDovL3NpbXRyLWRvc3NpZS10cXMubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItZG9zc2llLWhtcC5ucHJkMi5jYWl4YSIsImh0dHA6Ly9zaW10ci1kb3NzaWUtZGV2Lm5wcmQyLmNhaXhhIiwiaHR0cDovL3NpbXRyLnRzdC5jYWl4YSIsImh0dHA6Ly9zaW10ci5obXAuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLWRldi5ucHJkMi5jYWl4YSIsImh0dHA6Ly9uZWdvY2lvLnNpbXRyLmdlYmFuLmNhaXhhIiwiaHR0cDovL3NpbXRyLXdlYi10cXMubnByZDIuY2FpeGEiLCJodHRwczovL3NpbXRyLXdlYi1obXAubnByZDIuY2FpeGEiLCJodHRwczovL3NpbXRyLWRvc3NpZS1obXAubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLXBhZS1kZXYubnByZDIuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLXBhZS1obXAubnByZDIuY2FpeGEiLCJodHRwOi8vcGFlLnNpbXRyLmdlYmFuLmNhaXhhIiwiaHR0cDovL2JwbS5kZXMucGVkZXMuY2FpeGEiLCJodHRwOi8vc2ltdHIudHN0LnBlZGVzLmNhaXhhIiwiaHR0cDovL3NpbXRyLmhtcC5wZWRlcy5jYWl4YSIsImh0dHA6Ly9sb2NhbGhvc3QiLCJodHRwOi8vc2ltdHIuZGVzLmNhaXhhIiwiaHR0cDovL2Rvc3NpZS5obXAucGVkZXMuY2FpeGEiLCJodHRwOi8vc2ltdHItd2ViLWhtcC5ucHJkMi5jYWl4YSIsImh0dHA6Ly9zaW10ci5nZWJhbi5jYWl4YSIsImh0dHA6Ly9zaW10ci13ZWItcGFlLXRxcy5ucHJkMi5jYWl4YSIsImh0dHA6Ly9kb3NzaWUudHN0LnBlZGVzLmNhaXhhIiwiaHR0cDovL3NpbXRyLmRlcy5wZWRlcy5jYWl4YSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiTVRSQURNIiwiU0VUX1NFUlZJQ08iLCJlY21fdXNlciIsInVtYV9hdXRob3JpemF0aW9uIl19LCJzY29wZSI6Im9wZW5pZCIsImNvLXVuaWRhZGUiOiI3ODc1Iiwic2VydmljZV91c2VybmFtZSI6IlNNVFJQRVNEIiwibnUtY3BmIjoiMDE0OTc1MzIxNzUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJwNzUxOTE3IiwiZ2l2ZW5fbmFtZSI6IkFOQSBQQVVMQSBOVU5FUyBEQSBTSUxWQSIsImZhbWlseV9uYW1lIjoiU0lMVkEiLCJudS1sb3RhY2FvZmlzaWNhIjoiNzg3NSIsImVtYWlsIjoicDc1MTkxN0Bjb3JwLmNhaXhhLmdvdi5iciJ9.Npj8PkQB6ekYCia_cqK_tHyWrCb7PjeXZUPAVA-bM2Vz1z7UZfJLMabULnYEcbqqb_rkGoRVwPtokSc60rtkXQ4G-IC5iuRtThQ75dhn1MsdqXHZhKjmAHKLH4s3mGlUbx8r6u2eptAnocatfX2tj_Nt7Q3DD-BqzsOTW_NroifYvbD1p1uX3YEnakudsHXJUIqn1111d_gtjGAm02kyWmYQrtG2OQuBinaDo69nusTpH0Pvy_kPf_KaGF-yjSq_gDNQYcN2P0o4lI8nxbSU1kJhcP5yNkB-VmPPQ9r_yNrH-k53yxI1N0xx_6ZTBz_88I7c98oX7iIYwgcibpt97A",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [],
+					"options": {
+						"urlencoded": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/simtr-api/rest/negocio/v1/dossie-cliente/cnpj/00013888000105/receita",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simtr-api",
+						"rest",
+						"negocio",
+						"v1",
+						"dossie-cliente",
+						"cnpj",
+						"00013888000105",
+						"receita"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BPM-UPDATE",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNRmVKNjVfRC14cU55M1Zta01Ib01WS1NjZlA3S21ZazdtVjBJaEsta0F3In0.eyJqdGkiOiJmMjY1NmJiZi1mNzNmLTRiYmItOWZhNS1iZGZlZTJmMzU4N2MiLCJleHAiOjE2MDkyNTUyMzksIm5iZiI6MCwiaWF0IjoxNjA5MjU0MzM5LCJpc3MiOiJodHRwczovL2xvZ2luLmRlcy5jYWl4YS9hdXRoL3JlYWxtcy9pbnRyYW5ldCIsInN1YiI6IjgyYTliNTk4LWZiZjMtNDBkOC05MTZmLTQzYTlkOTZmOGVhOCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImNsaS13ZWItbXRyIiwiYXV0aF90aW1lIjoxNjA5MjQxOTUxLCJzZXNzaW9uX3N0YXRlIjoiNWE5NjUyYmYtMzEyNS00YjcyLWFkMGEtYjQzZGNiODNmYWQ2IiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vc2ltdHItd2ViLXRxcy1lc3RlaXJhcy5ucHJkMi5jYWl4YSIsImh0dHA6Ly9icG0uZGVzLnBlZGVzLmNhaXhhIiwiaHR0cHM6Ly9zaW10ci13ZWItaG1wLWVzdGVpcmFzLm5wcmQyLmNhaXhhIiwiaHR0cDovL2xvY2FsaG9zdCIsImh0dHA6Ly9zaW10ci13ZWItaG1wLWVzdGVpcmFzLm5wcmQyLmNhaXhhIiwiaHR0cDovL2xvY2FsaG9zdDo0MjAwIiwiaHR0cDovL3NpbXRyLmRlcy5jYWl4YSIsImh0dHA6Ly9zaW10ci50c3QuY2FpeGEiLCJodHRwOi8vc2ltdHIuaG1wLmNhaXhhIiwiaHR0cDovL3NpbXRyLmdlYmFuLmNhaXhhIiwiaHR0cDovL3NpbXRyLXdlYi1kZXMtZXN0ZWlyYXMubnByZDIuY2FpeGEiLCJodHRwOi8vbmVnb2Npby5zaW10ci5nZWJhbi5jYWl4YSIsImh0dHBzOi8vc2ltdHItd2ViLXRxcy1lc3RlaXJhcy5ucHJkMi5jYWl4YSIsImh0dHBzOi8vc2ltdHItd2ViLWRlcy1lc3RlaXJhcy5ucHJkMi5jYWl4YSIsImh0dHA6Ly9sYWIuc2ltdHIuZ2ViYW4uY2FpeGEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIk1UUkFETSIsIlNFVF9TRVJWSUNPIiwiZWNtX3VzZXIiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwic2NvcGUiOiJvcGVuaWQiLCJjby11bmlkYWRlIjoiNzg3NSIsInNlcnZpY2VfdXNlcm5hbWUiOiJTTVRSUEVTRCIsIm51LWNwZiI6IjAxNDk3NTMyMTc1IiwicHJlZmVycmVkX3VzZXJuYW1lIjoicDc1MTkxNyIsImdpdmVuX25hbWUiOiJBTkEgUEFVTEEgTlVORVMgREEgU0lMVkEiLCJmYW1pbHlfbmFtZSI6IlNJTFZBIiwibnUtbG90YWNhb2Zpc2ljYSI6Ijc4NzUiLCJlbWFpbCI6InA3NTE5MTdAY29ycC5jYWl4YS5nb3YuYnIifQ.b-q-lTnnMdH53xIcV57xl0vBR56qQ02cHDhtqlC3AhRN8DyGhcj-molkr1io56rDuwiWVD5tOa6EYi5HgTH9FumcFDzbpEy-lOlB_yqS66TO0qen1i7O3pVjFGFvd0aaPBltBKr6HpobhmJ1OOzy13KIrQPOcOfW2pTAIMZSJjlFO6PBeHwDy8hlBpqJapkBmYme22S2_aLoCV3kU7z6ZLhS9yH5sGy0Q_68ylTLJznL93SasfSLoi4YyaDFUhj3VB3aXjAbhqli-O1AGYgUNSApqXVMsnXF9A1OI3DxObFIukrNpl8RBS1JvDERB3VcdeiqMcphCi-nmfh4f-hMjQ",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"container_bpm\": \"\",\r\n\"processo_bpm\": \"\",\r\n\"instancia_bpm\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/simtr-api/rest/negocio/v1/administracao/v1/dossie-produto/:id/bpm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"simtr-api",
+						"rest",
+						"negocio",
+						"v1",
+						"administracao",
+						"v1",
+						"dossie-produto",
+						":id",
+						"bpm"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "79"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
